@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catalog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<script type="text/javascript">
+$(function() {
+ $(".user_lists").click(function() {
+ 	alert('hi');
+ $.ajax({
+    type: "POST",
+   dataType: "json"
+    url: "<%= users_path %>",
+   success: function(data) {
+  
+  } 
+});
+}); 
+
+</script>
+
+</body>
+</html>

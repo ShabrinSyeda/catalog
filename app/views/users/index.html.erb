@@ -1,0 +1,17 @@
+<div class="bs-example" data-example-id="striped-table">
+  <h1>Listing users - <%= link_to 'Show Users', users_path , :class => "btn btn-large btn-info" %>
+  <%= link_to 'New User', new_user_path , :class => "btn btn-info" %> </h1>
+  <table class="table table-striped" id="user_lists" style = "disaply:none;">
+     <thead> <tr>      <th>First Name</th> <th>Last Name</th>  <th>Role</th> <th>Show</th> <th>Edit</th> <th>Destroy</th></tr> </thead> 
+     <tbody> 
+<% @users.each do |user| %>
+
+      <tr> <td><%= user.first_name %></td> <td><%= user.last_name %></td>
+<td><%= user.role.blank? ? "End User" : user.try(:role) %></td>
+       <td><%= link_to 'Show', user %></td>
+
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td></tr> 
+<% end %>
+   </tbody> </table> </div>
+
